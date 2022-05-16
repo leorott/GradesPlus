@@ -4,18 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.Vector;
-/**
- *
- * @author lp5lcavuoti
- *
- */
+
 public class SchoolGUI extends JFrame{
 
-	/**
-	 * @uml.property  name="model"
-	 * @uml.associationEnd
-	 */
-	private GradeManagement model; // implementiert auch Mittelwert
+	private GradeManagement model;
 	private JLabel     meanValueLbl;
 	private JButton    meanBtn;
 	private JButton    neueNoteBtn;
@@ -97,16 +89,16 @@ public class SchoolGUI extends JFrame{
 	}
 
 	private void onAdd(){
-		// Textfeld auslesen in double wandeln
+		// read textfield and convert to double
 		double grade =  Double.parseDouble(neueNoteTxt.getText());
 
 
 		if (model.addGrade(grade)){
-			// GUI steuern
+			// GUI
 			neueNoteBtn.setEnabled(false);
 			neueNoteTxt.setText("");
 			neueNoteTxt.requestFocus();
-			// anzeigen aller Werte am GUI
+			// show all values in GUI
 			Vector<Double> liste = new Vector<>();
 			for (int i=0; i < model.getGradeAmount(); i++){
 				liste.add(model.showGradeNumber(i));
