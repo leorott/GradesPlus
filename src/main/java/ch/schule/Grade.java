@@ -12,7 +12,7 @@ public class Grade implements GradeManagement, Average {
         this.gradeList = new ArrayList<>();
     }
 
-	@Override
+    @Override
     public double computeMean() {
         //compute mean
         AtomicReference<Double> sum = new AtomicReference<>((double) 0);
@@ -22,12 +22,12 @@ public class Grade implements GradeManagement, Average {
 
     @Override
     public boolean addGrade(double grade) {
-		if(grade >= 1 && grade <= 6) {
-			gradeList.add(grade);
-			return true;
-		}else {
-			return false;
-		}
+        if (grade >= 1 && grade <= 6) {
+            gradeList.add(grade);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
